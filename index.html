@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<img src="nobita.png" alt="" id="image">
+<br>
+<button onclick="MoveRight()">Right</button>
+<button onclick="MoveLeft()">Left</button>
+<button onclick="MoveUp()">Up</button>
+<button onclick="MoveDown()">Down</button>
+
+<script>
+    let element = null;
+    element = document.getElementById('image');
+
+    function init(){
+        element = document.getElementById('image');
+        element.style.position = 'relative';
+        element.style.left = '0px';
+        element.style.top = '0px';
+    }
+
+    init();
+
+    function MoveRight(){
+        console.log('--------> +20')
+        element.style.left = parseInt(element.style.left) + 20 + 'px';
+    }
+
+    function MoveLeft(){
+        console.log('--------> +21')
+        element.style.left = parseInt(element.style.left) -20 +'px';
+    }
+
+    function MoveUp(){
+        console.log('--------> +22')
+        element.style.top = parseInt(element.style.top) -20 +'px';
+    }
+
+    function MoveDown(){
+        console.log('--------> +23')
+        element.style.top = parseInt(element.style.top) + 20 + 'px';
+    }
+
+    function moveSelection(evt){
+        switch (evt.keyCode) {
+            case 37:
+                MoveLeft();
+                break;
+            case 38:
+                MoveUp();
+                break;
+            case 39:
+                MoveRight();
+                break;
+            case 40:
+                MoveDown();
+                break;
+        }
+    }
+
+    function docReady(){
+        window.addEventListener('keydown', moveSelection);
+    }
+    window.onload = docReady;
+
+</script>
+</body>
+</html>
